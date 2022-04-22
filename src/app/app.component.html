@@ -1,0 +1,31 @@
+<h1>User form</h1>
+<form [formGroup]="userForm" (submit)="onSubmitForm()">
+  <!-- Les div ici permettent un affichage des champs en colonne : une div est en display block -->
+  <div>
+    <!-- for et id ici pour accessibilité : au clic sur le label, focus sur le champ de saisie avec l'id -->
+    <label for="firstName">Prénom</label>
+    <input formControlName="firstName" id="firstName" type="text" />
+  </div>
+
+  <div>
+    <label for="lastName">Nom</label>
+    <input formControlName="lastName" id="lastName" type="text" />
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input formControlName="email" id="email" type="text" />
+  </div>
+
+  <h2>Adress</h2>
+  <div formGroupName="address">
+    <label>Street</label>
+    <input formControlName="street" type="text" />
+    <label>City</label>
+    <input formControlName="city" type="text" />
+  </div>
+
+  <!-- Par défaut, un button dans un formulaire est de type submit
+  Attention, si on a besoin d'autres boutons dans le formulaire, il faut mettre un type "button" pour indiquer que ce bouton n'est pas voué à soumettre le formulaire -->
+  <button type="submit">Envoyer</button>
+</form>
