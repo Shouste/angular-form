@@ -4,7 +4,29 @@
   <div>
     <!-- for et id ici pour accessibilité : au clic sur le label, focus sur le champ de saisie avec l'id -->
     <label for="firstName">Prénom</label>
-    <input formControlName="firstName" id="firstName" type="text" />
+    <!-- Ici required est utile pour l'accessibilité, mais les contrôles seront gérés par le js -->
+    <!-- autofocus met le focus sur ce champ, lors du chgt de la page -> utile en particulier sur mobile -->
+    <input
+      required
+      autofocus
+      formControlName="firstName"
+      id="firstName"
+      type="text"
+    />
+    <!-- plutôt créer une méthode qui retourne le message d'erreur -->
+    <!-- notation errors?.minlength = vrai si errors.minlength existe, faux sinon -->
+    <p
+      *ngIf="userForm.controls.firstName.errors?.minlength && isFormSubmitted"
+      class="error"
+    >
+      Le prénom doit contenir au moins 2 caractères
+    </p>
+    <p
+      *ngIf="userForm.controls.firstName.errors?.required && isFormSubmitted"
+      class="error"
+    >
+      Le prénom est obligatoire
+    </p>
   </div>
 
   <div>

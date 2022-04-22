@@ -1,3 +1,13 @@
 p {
   font-family: Lato;
 }
+
+p.error {
+  color: red;
+  font-size: 70%;
+  margin: 0;
+}
+
+div {
+  margin-bottom: 20px;
+}
